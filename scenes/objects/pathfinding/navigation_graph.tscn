@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dbd2r72gts6lr"]
+
+[ext_resource type="Script" uid="uid://dqm6rade6fs4p" path="res://scripts/ai/pathfinding/NavigationGraph.cs" id="1_47pvj"]
+[ext_resource type="PackedScene" uid="uid://c2oco3acp67v1" path="res://scenes/objects/pathfinding/path_node_connection.tscn" id="2_jaweo"]
+[ext_resource type="Texture2D" uid="uid://cbqhj1p4oxag4" path="res://textures/editor/icons/navigation_graph.png" id="2_q8exk"]
+
+[node name="NavigationGraph" type="Node3D" unique_id=609991959 node_paths=PackedStringArray("_pathNodeConnectionHolder")]
+script = ExtResource("1_47pvj")
+_pathNodeConnectionHolder = NodePath("PathNodeConnectionHolder")
+_pathNodeConnectionScene = ExtResource("2_jaweo")
+
+[node name="PathNodeConnectionHolder" type="Node3D" parent="." unique_id=68774296]
+
+[node name="Sprite3D" type="Sprite3D" parent="." unique_id=2133974706]
+pixel_size = 0.04
+billboard = 1
+texture_filter = 0
+texture = ExtResource("2_q8exk")

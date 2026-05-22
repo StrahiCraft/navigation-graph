@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://r20hpt871jcp"]
+
+[ext_resource type="Script" uid="uid://c2rmk8qjgjhn5" path="res://scripts/ai/pathfinding/PathNode.cs" id="1_38cp4"]
+[ext_resource type="Material" uid="uid://bv0d5igxd31as" path="res://materials/debug/pathfinding/path_node.tres" id="2_npk6q"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_0u310"]
+radius = 0.25
+height = 0.5
+radial_segments = 8
+rings = 8
+
+[node name="PathNode" type="Node3D" unique_id=1441262759]
+script = ExtResource("1_38cp4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=279379101]
+layers = 524288
+material_override = ExtResource("2_npk6q")
+mesh = SubResource("SphereMesh_0u310")

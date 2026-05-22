@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c2oco3acp67v1"]
+
+[ext_resource type="Script" uid="uid://c82u6y7bh83fv" path="res://scripts/ai/pathfinding/PathNodeConnection.cs" id="1_ecpbe"]
+[ext_resource type="Material" uid="uid://jtn8tuleuwd5" path="res://materials/debug/pathfinding/path_node_connection.tres" id="1_wf7ej"]
+
+[node name="PathNodeConnection" type="Node3D" unique_id=1191909646]
+script = ExtResource("1_ecpbe")
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="." unique_id=125229842]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+material_override = ExtResource("1_wf7ej")
+radius = 0.035
+height = 1.0
+sides = 3

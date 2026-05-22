@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://diqub7hw5e4hd"]
+
+[ext_resource type="PackedScene" uid="uid://b625kakk5eder" path="res://scenes/objects/blockout/box.tscn" id="1_xgkye"]
+[ext_resource type="Material" uid="uid://ca1uh07scv1bo" path="res://materials/solid_colors/gray.tres" id="2_bfhv8"]
+[ext_resource type="PackedScene" uid="uid://dbd2r72gts6lr" path="res://scenes/objects/pathfinding/navigation_graph.tscn" id="3_kljt5"]
+
+[node name="TestScene" type="Node3D" unique_id=1763237929]
+
+[node name="Map" type="Node3D" parent="." unique_id=2142905867]
+
+[node name="Box" parent="Map" unique_id=692335525 instance=ExtResource("1_xgkye")]
+transform = Transform3D(50, 0, 0, 0, 1, 0, 0, 0, 50, 0, 0, 0)
+material_override = ExtResource("2_bfhv8")
+
+[node name="Box2" parent="Map" unique_id=1665928914 instance=ExtResource("1_xgkye")]
+transform = Transform3D(4.929504, 0, 3.4122517, 0, 5, 0, -3.5879395, 0, 4.6881247, 14.585226, 2.4594936, 12.17576)
+
+[node name="Box3" parent="Map" unique_id=1852172935 instance=ExtResource("1_xgkye")]
+transform = Transform3D(4.0309324, 0, 2.9583075, 0, 5, 0, -2.9583075, 0, 4.0309324, -3.9199762, 2.4594936, -8.944902)
+
+[node name="Box4" parent="Map" unique_id=91861597 instance=ExtResource("1_xgkye")]
+transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10.491763, 2.4594936, 9.382574)
+
+[node name="NavigationGraph" parent="." unique_id=609991959 instance=ExtResource("3_kljt5")]
