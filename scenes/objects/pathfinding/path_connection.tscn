@@ -7,4 +7,4 @@
 
 [node name="CSGCylinder3D" parent="." index="0" unique_id=125229842]
 material_override = ExtResource("2_vbut1")
-radius = 0.04
+radius = 0.1
