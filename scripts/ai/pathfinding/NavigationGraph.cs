@@ -24,16 +24,16 @@ public partial class NavigationGraph : Node3D
 		get => _calculatePath;
 		set
 		{
-			if(_startingNode != null && _endingNode != null)
+			if(_startingNode != null && _goalNode != null)
 			{
 				RefreshGraph();
 				switch (_pathCalculationType)
 				{
 					case PathCalculationType.DFS:
-						RenderPath(CalculatePathDFS());
+						RenderPath(Pathfinder.CalculatePathDFS(_startingNode, _goalNode));
 						break;
 					case PathCalculationType.BFS:
-						RenderPath(CalculatePathBFS());
+						RenderPath(Pathfinder.CalculatePathBFS(_startingNode, _goalNode));
 						break;
 				}
 			}
@@ -41,7 +41,7 @@ public partial class NavigationGraph : Node3D
 	}
 
 	[Export] private PathNode _startingNode;
-	[Export] private PathNode _endingNode;
+	[Export] private PathNode _goalNode;
 
 	[ExportCategory("Path connections")]
 	[Export] private Node _pathNodeConnectionHolder;
@@ -208,58 +208,5 @@ public partial class NavigationGraph : Node3D
 
 			_pathNodeConnectionHolder.AddChild(connection);
 		}
-	}
-
-	private List<PathNode> CalculatePathDFS()
-	{
-		Stack<(PathNode, List<PathNode>)> toExplore = new Stack<(PathNode, List<PathNode>)>();
-		toExplore.Push((_startingNode, new List<PathNode>() {_startingNode}));
-		List<PathNode> explored = new List<PathNode>();
-
-		while(toExplore.Count > 0)
-		{
-			var (currentNode, path) = toExplore.Pop();
-			if(currentNode == _endingNode)
-			{
-				return path;
-			}
-			explored.Add(currentNode);
-
-			foreach(PathNode node in currentNode.ConnectedPathNodes)
-			{
-				if (!explored.Contains(node))
-				{
-					toExplore.Push((node, new List<PathNode>(path) {node}));
-				}
-			}
-		}
-
-		return null;
-	}
-
-	private List<PathNode> CalculatePathBFS()
-	{
-		Queue<(PathNode, List<PathNode>)> toExplore = new Queue<(PathNode, List<PathNode>)>();
-		toExplore.Enqueue((_startingNode, new List<PathNode>() {_startingNode}));
-		List<PathNode> explored = new List<PathNode>();
-
-		while(toExplore.Count > 0)
-		{
-			var (currentNode, path) = toExplore.Dequeue();
-			if(currentNode == _endingNode)
-			{
-				return path;
-			}
-			explored.Add(currentNode);
-
-			foreach(PathNode node in currentNode.ConnectedPathNodes)
-			{
-				if (!explored.Contains(node))
-				{
-					toExplore.Enqueue((node, new List<PathNode>(path) {node}));
-				}
-			}
-		}
-		return null;
 	}
 }
