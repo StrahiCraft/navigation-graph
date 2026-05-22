@@ -54,4 +54,32 @@ public static class Pathfinder
 		}
 		return null;
 	}
+
+	public static List<PathNode> CalculatePathDijkstra(PathNode startingNode, PathNode goalNode)
+	{
+		PriorityQueue<KeyValuePair<PathNode, List<PathNode>>, float> toExplore = new PriorityQueue<KeyValuePair<PathNode, List<PathNode>>, float>();
+		toExplore.Enqueue(new KeyValuePair<PathNode, List<PathNode>> (startingNode, new List<PathNode>() {startingNode}), 0f);
+		List<PathNode> explored = new List<PathNode>();
+
+		while(toExplore.Count > 0)
+		{
+			toExplore.TryDequeue(out KeyValuePair<PathNode, List<PathNode>> currentNode, out float distanceFromStart);
+			if(currentNode.Key == goalNode)
+			{
+				return currentNode.Value;
+			}
+			explored.Add(currentNode.Key);
+
+			foreach(PathNode node in currentNode.Key.ConnectedPathNodes)
+			{
+				if (!explored.Contains(node))
+				{
+					toExplore.Enqueue(new KeyValuePair<PathNode, List<PathNode>> (node, new List<PathNode>(currentNode.Value) {node}),
+						currentNode.Key.Position.DistanceTo(node.Position) + distanceFromStart);
+				}
+			}
+		}
+
+		return null;
+	}
 }

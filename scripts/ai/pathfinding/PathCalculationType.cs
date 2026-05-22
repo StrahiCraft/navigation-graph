@@ -1,5 +1,7 @@
 public enum PathCalculationType
 {
 	DFS,
-	BFS
+	BFS,
+	DIJKSTRA,
+	
 }

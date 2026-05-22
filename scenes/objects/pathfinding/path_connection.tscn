@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://olv1sawj4ltg"]
 
-[ext_resource type="PackedScene" path="res://scenes/objects/utility/pathfinding/path_node_connection.tscn" id="1_xo0yi"]
+[ext_resource type="PackedScene" uid="uid://c2oco3acp67v1" path="res://scenes/objects/pathfinding/path_node_connection.tscn" id="1_xo0yi"]
 [ext_resource type="Material" uid="uid://fyix4u4thwl1" path="res://materials/debug/pathfinding/path_connection.tres" id="2_vbut1"]
 
 [node name="PathNodeConnection" unique_id=1191909646 instance=ExtResource("1_xo0yi")]
