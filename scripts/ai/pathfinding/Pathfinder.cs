@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Reflection;
 
 public static class Pathfinder
 {
@@ -57,7 +58,8 @@ public static class Pathfinder
 
 	public static List<PathNode> CalculatePathDijkstra(PathNode startingNode, PathNode goalNode)
 	{
-		PriorityQueue<KeyValuePair<PathNode, List<PathNode>>, float> toExplore = new PriorityQueue<KeyValuePair<PathNode, List<PathNode>>, float>();
+		PriorityQueue<KeyValuePair<PathNode, List<PathNode>>, float> toExplore = 
+			new PriorityQueue<KeyValuePair<PathNode, List<PathNode>>, float>();
 		toExplore.Enqueue(new KeyValuePair<PathNode, List<PathNode>> (startingNode, new List<PathNode>() {startingNode}), 0f);
 		List<PathNode> explored = new List<PathNode>();
 
@@ -76,6 +78,37 @@ public static class Pathfinder
 				{
 					toExplore.Enqueue(new KeyValuePair<PathNode, List<PathNode>> (node, new List<PathNode>(currentNode.Value) {node}),
 						currentNode.Key.Position.DistanceTo(node.Position) + distanceFromStart);
+				}
+			}
+		}
+
+		return null;
+	}
+
+	public static List<PathNode> CalculatePathAStar(PathNode startingNode, PathNode goalNode)
+	{
+		PriorityQueue<KeyValuePair<PathNode, List<PathNode>>, AStarCosts> toExplore =
+			new PriorityQueue<KeyValuePair<PathNode, List<PathNode>>, AStarCosts>();
+		AStarCosts startingCosts = new AStarCosts(0, startingNode.Position.DistanceTo(goalNode.Position));
+		toExplore.Enqueue(new KeyValuePair<PathNode, List<PathNode>> (startingNode, new List<PathNode>() {startingNode}), startingCosts);
+		List<PathNode> explored = new List<PathNode>();
+
+		while(toExplore.Count > 0)
+		{
+			toExplore.TryDequeue(out KeyValuePair<PathNode, List<PathNode>> currentNode, out AStarCosts currentCosts);
+			if(currentNode.Key == goalNode)
+			{
+				return currentNode.Value;
+			}
+			explored.Add(currentNode.Key);
+
+			foreach(PathNode node in currentNode.Key.ConnectedPathNodes)
+			{
+				if (!explored.Contains(node))
+				{
+					toExplore.Enqueue(new KeyValuePair<PathNode, List<PathNode>> (node, new List<PathNode>(currentNode.Value) {node}),
+						new AStarCosts(currentCosts.HCost + currentNode.Key.Position.DistanceTo(node.Position),
+						currentNode.Key.Position.DistanceTo(goalNode.Position)));
 				}
 			}
 		}

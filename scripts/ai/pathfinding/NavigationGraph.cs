@@ -38,6 +38,9 @@ public partial class NavigationGraph : Node3D
 					case PathCalculationType.DIJKSTRA:
 						RenderPath(Pathfinder.CalculatePathDijkstra(_startingNode, _goalNode));
 						break;
+					case PathCalculationType.A_STAR:
+						RenderPath(Pathfinder.CalculatePathAStar(_startingNode, _goalNode));
+						break;
 				}
 			}
 		}
