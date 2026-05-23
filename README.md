@@ -49,3 +49,7 @@
 <p>
  The calculate path button calculates a path between the starting and goal node that we give to the editor tool.
 </p>
+<img src="repo_assets/path_calculation.gif" width=400px alt="Path calculation showcase">
+<p>
+ <i>*Note - BFS, Dijkstra and A** usually have the same path, but the diffirence is the speed of calculation</i>
+</p>
