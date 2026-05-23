@@ -40,3 +40,12 @@
 <p>
  Since there is no implementation for agents in this project, there are tools to help test out the pathfinding algorithms.
 </p>
+<img src="repo_assets/editor_tools.png" width=400px alt="Editor tools">
+<p>
+ These tools are found when selecting the navigation graph. The refresh tool simply refreshes the graph, regenerating connections and recalculating paths if needed.
+ Path calculation type is where we choose the pathfinding algorithm to use for our testing purposes.
+</p>
+<img src="repo_assets/path_calculation_types.png" width=400px alt="Path calculation types">
+<p>
+ The calculate path button calculates a path between the starting and goal node that we give to the editor tool.
+</p>
