@@ -1,8 +1,13 @@
-<h1>Navigation graph tool for Godot 4.6 C#</h1>
-<p>This is a tool made for the <a href="https://github.com/godotengine/godot/tree/master">Godot game engine</a> with C#
+<h1>
+ Navigation graph tool for Godot 4.6 C#
+</h1>
+<p>
+ This is a tool made for the <a href="https://github.com/godotengine/godot/tree/master">Godot game engine</a> with C#
  for making simple navigation graphs for ai agents to use. The tool is designed to be used in 3D scenes, but could be changed pretty easily to 
-work with 2D ones. The tool also provides pathfinding between two given nodes.</p>
-<p>Pathfinding algorithms that are implemented:<br>
+ work with 2D ones. The tool also provides pathfinding between two given nodes.
+</p>
+<p>
+ Pathfinding algorithms that are implemented:<br>
 <ul>
   <li><a href="https://en.wikipedia.org/wiki/Depth-first_search">DFS</a> (Depth first search</li>
   <li><a href="https://en.wikipedia.org/wiki/Breadth-first_search">BFS</a> (Bredth first search)</li>
@@ -11,15 +16,27 @@ work with 2D ones. The tool also provides pathfinding between two given nodes.</
 </ul>
 </p>
 <p>And since the pathfinding logic is in a seperate class, more can be added if needed.</p>
-<h2>Using the tool</h2>
-<p>The tool consists of the navigation graph scene that has to be in the scene for the path nodes to be added.</p>
-<img>
-<p>To start using the tool, after adding all the scripts, scenes, materials and textures from this project to yours, drag into the scene from "scenes/objects/pathfinding" the 
-navigation_graph.tscn scene.
-<img>
-After the navigation graph has been added, it should teleport to the center of the scene.</p>
+<h2>
+ Using the tool
+</h2>
+<p>
+ The tool consists of the navigation graph scene that has to be in the scene for the path nodes to be added.
+</p>
+<img src="repo_assets/tool_showcase.png" width=400px alt="Tool showcase">
+<p>
+ To start using the tool, after adding all the scripts, scenes, materials and textures from this project to yours, drag into the scene from "scenes/objects/pathfinding" the 
+ navigation_graph.tscn scene.
+</p>
+<img src="repo_assets/adding_the_graph.gif" width=400px alt="Adding the graph">
+<p>After the navigation graph has been added, it should teleport to the center of the scene.</p>
 <p>
  With the graph in the scene, we can now start adding path nodes, they are found in the same folder as the navigation graph. Add nodes by draging them into the scene or copy pasting 
  already existing ones in the scene. The nodes automatically connect by raycasting to each other when spawning in.
- <img>
+</p>
+<img src="repo_assets/adding_path_nodes.gif" width=400px alt="Adding path nodes">
+<h2>
+ Testing out pathfinding
+</h2>
+<p>
+ Since there is no implementation for agents in this project, there are tools to help test out the pathfinding algorithms.
 </p>
