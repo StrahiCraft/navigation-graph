@@ -120,6 +120,7 @@ public partial class NavigationGraph : Node3D
 		_maxDistanceBetweenPathNodes = 5;
 		_pathNodeConnectionHolder = _pathNodeConnectionHolder = GetChild(0);
 		_pathNodeConnectionScene = ResourceLoader.Load<PackedScene>("res://scenes/objects/pathfinding/path_node_connection.tscn");
+		_pathConnectionScene = ResourceLoader.Load<PackedScene>("res://scenes/objects/pathfinding/path_connection.tscn");
 		_mapMask = 1;
 		_pathNodes.Clear();
 

@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://b625kakk5eder" path="res://scenes/objects/blockout/box.tscn" id="1_xgkye"]
 [ext_resource type="Material" uid="uid://ca1uh07scv1bo" path="res://materials/solid_colors/gray.tres" id="2_bfhv8"]
 [ext_resource type="PackedScene" uid="uid://dbd2r72gts6lr" path="res://scenes/objects/pathfinding/navigation_graph.tscn" id="3_kljt5"]
+[ext_resource type="PackedScene" uid="uid://olv1sawj4ltg" path="res://scenes/objects/pathfinding/path_connection.tscn" id="4_ad8uc"]
 [ext_resource type="PackedScene" uid="uid://r20hpt871jcp" path="res://scenes/objects/pathfinding/path_node.tscn" id="5_nd4bu"]
 
 [node name="TestScene" type="Node3D" unique_id=1763237929]
@@ -23,6 +24,7 @@ transform = Transform3D(4.0309324, 0, 2.9583075, 0, 5, 0, -2.9583075, 0, 4.03093
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10.491763, 2.4594936, 9.382574)
 
 [node name="NavigationGraph" parent="." unique_id=609991959 instance=ExtResource("3_kljt5")]
+_pathConnectionScene = ExtResource("4_ad8uc")
 
 [node name="PathNode" parent="NavigationGraph" unique_id=1441262759 instance=ExtResource("5_nd4bu")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0659275, 0.75, 3.3095102)
