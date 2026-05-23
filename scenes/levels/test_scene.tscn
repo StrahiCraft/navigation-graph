@@ -3,7 +3,6 @@
 [ext_resource type="PackedScene" uid="uid://b625kakk5eder" path="res://scenes/objects/blockout/box.tscn" id="1_xgkye"]
 [ext_resource type="Material" uid="uid://ca1uh07scv1bo" path="res://materials/solid_colors/gray.tres" id="2_bfhv8"]
 [ext_resource type="PackedScene" uid="uid://dbd2r72gts6lr" path="res://scenes/objects/pathfinding/navigation_graph.tscn" id="3_kljt5"]
-[ext_resource type="PackedScene" uid="uid://olv1sawj4ltg" path="res://scenes/objects/pathfinding/path_connection.tscn" id="4_ad8uc"]
 [ext_resource type="PackedScene" uid="uid://r20hpt871jcp" path="res://scenes/objects/pathfinding/path_node.tscn" id="5_nd4bu"]
 
 [node name="TestScene" type="Node3D" unique_id=1763237929]
@@ -23,155 +22,16 @@ transform = Transform3D(4.0309324, 0, 2.9583075, 0, 5, 0, -2.9583075, 0, 4.03093
 [node name="Box4" parent="Map" unique_id=91861597 instance=ExtResource("1_xgkye")]
 transform = Transform3D(5, 0, 0, 0, 5, 0, 0, 0, 5, -10.491763, 2.4594936, 9.382574)
 
-[node name="NavigationGraph" parent="." unique_id=609991959 node_paths=PackedStringArray("_startingNode", "_goalNode") instance=ExtResource("3_kljt5")]
-_pathCalculationType = 3
-_startingNode = NodePath("PathNode33")
-_goalNode = NodePath("PathNode42")
-_pathConnectionScene = ExtResource("4_ad8uc")
+[node name="NavigationGraph" parent="." unique_id=609991959 instance=ExtResource("3_kljt5")]
 
 [node name="PathNode" parent="NavigationGraph" unique_id=1441262759 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.7987685, 0.75, 0.24741268)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.0659275, 0.75, 3.3095102)
 
-[node name="PathNode2" parent="NavigationGraph" unique_id=756542015 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.40885353, 0.75, 1.2658722)
+[node name="PathNode3" parent="NavigationGraph" unique_id=1461183943 instance=ExtResource("5_nd4bu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1611931, 0.75, 5.74778)
 
-[node name="PathNode3" parent="NavigationGraph" unique_id=57532642 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.42175555, 0.7500005, -1.2983949)
+[node name="PathNode4" parent="NavigationGraph" unique_id=724809128 instance=ExtResource("5_nd4bu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.60842586, 0.75, 7.788681)
 
-[node name="PathNode13" parent="NavigationGraph" unique_id=12075667 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.83420575, 0.7500005, -4.574034)
-
-[node name="PathNode14" parent="NavigationGraph" unique_id=1903064776 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.0816653, 0.7500005, -6.70866)
-
-[node name="PathNode15" parent="NavigationGraph" unique_id=1472605005 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0052006245, 0.7500005, -8.080683)
-
-[node name="PathNode17" parent="NavigationGraph" unique_id=1102637341 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.61976665, 0.7500005, -9.992487)
-
-[node name="PathNode18" parent="NavigationGraph" unique_id=2027987646 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.236342, 0.7500005, -14.120398)
-
-[node name="PathNode19" parent="NavigationGraph" unique_id=1072686478 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.8023076, 0.75, -13.782828)
-
-[node name="PathNode20" parent="NavigationGraph" unique_id=726167626 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.269237, 0.75, -11.970457)
-
-[node name="PathNode21" parent="NavigationGraph" unique_id=137878229 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.806946, 0.75, -9.947205)
-
-[node name="PathNode22" parent="NavigationGraph" unique_id=84999183 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.6891723, 0.75, -7.860188)
-
-[node name="PathNode23" parent="NavigationGraph" unique_id=1655877266 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.300243, 0.75, -4.982106)
-
-[node name="PathNode24" parent="NavigationGraph" unique_id=1730689827 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.488251, 0.75, -5.0841594)
-
-[node name="PathNode25" parent="NavigationGraph" unique_id=1200359973 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.307446, 0.75, -0.48858356)
-
-[node name="PathNode26" parent="NavigationGraph" unique_id=1542085720 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.086472, 0.75, 3.674509)
-
-[node name="PathNode27" parent="NavigationGraph" unique_id=1014499141 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.2705827, 0.74999905, 6.6694775)
-
-[node name="PathNode28" parent="NavigationGraph" unique_id=1855166807 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4551125, 0.74999905, 8.130314)
-
-[node name="PathNode29" parent="NavigationGraph" unique_id=466122776 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.635713, 0.7499981, 11.401898)
-
-[node name="PathNode30" parent="NavigationGraph" unique_id=26662351 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.141239, 0.7499981, 13.540501)
-
-[node name="PathNode31" parent="NavigationGraph" unique_id=2066992347 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.767227, 0.7499981, 12.754584)
-
-[node name="PathNode32" parent="NavigationGraph" unique_id=1816787497 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.103187, 0.7499981, 14.3473215)
-
-[node name="PathNode33" parent="NavigationGraph" unique_id=2108581542 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.23346, 0.7499981, 13.42818)
-
-[node name="PathNode34" parent="NavigationGraph" unique_id=1619372796 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.851324, 0.7499981, 10.578656)
-
-[node name="PathNode35" parent="NavigationGraph" unique_id=728459586 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.293293, 0.7499981, 7.124213)
-
-[node name="PathNode36" parent="NavigationGraph" unique_id=1313396041 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.531133, 0.7499981, 4.9703846)
-
-[node name="PathNode37" parent="NavigationGraph" unique_id=366210242 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.903779, 0.7499981, 0.56235313)
-
-[node name="PathNode38" parent="NavigationGraph" unique_id=1904443068 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.24545, 0.7499981, 1.9489291)
-
-[node name="PathNode39" parent="NavigationGraph" unique_id=1244337689 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5452175, 0.7499981, 9.531907)
-
-[node name="PathNode40" parent="NavigationGraph" unique_id=700904608 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.65837896, 0.7499962, 7.0901814)
-
-[node name="PathNode41" parent="NavigationGraph" unique_id=2102675035 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.9087663, 0.74999714, 9.787024)
-
-[node name="PathNode42" parent="NavigationGraph" unique_id=1847639803 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.024214, 0.7499981, 6.11602)
-
-[node name="PathNode43" parent="NavigationGraph" unique_id=1952507093 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.040504, 0.74999905, 7.3894415)
-
-[node name="PathNode44" parent="NavigationGraph" unique_id=1437636269 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.2007885, 0.74999905, 10.720661)
-
-[node name="PathNode45" parent="NavigationGraph" unique_id=1463566975 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.116834, 0.74999905, 13.857551)
-
-[node name="PathNode46" parent="NavigationGraph" unique_id=1010103619 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.8352895, 0.74999905, 13.954649)
-
-[node name="PathNode47" parent="NavigationGraph" unique_id=1435338259 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6026521, 0.74999905, 13.479078)
-
-[node name="PathNode48" parent="NavigationGraph" unique_id=904607802 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.9420972, 0.74999905, 12.151043)
-
-[node name="PathNode49" parent="NavigationGraph" unique_id=366869680 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7868633, 0.74999905, 13.452608)
-
-[node name="PathNode16" parent="NavigationGraph" unique_id=1110750680 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0052006, 0.7500005, -6.0806828)
-
-[node name="PathNode4" parent="NavigationGraph" unique_id=361103154 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0206842, 0.7499995, -2.7662334)
-
-[node name="PathNode5" parent="NavigationGraph" unique_id=325066074 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.054015, 0.74999905, -2.7181587)
-
-[node name="PathNode6" parent="NavigationGraph" unique_id=703722483 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.953974, 0.7499995, 0.48805094)
-
-[node name="PathNode7" parent="NavigationGraph" unique_id=1029426431 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.825705, 0.7499995, 3.1500683)
-
-[node name="PathNode8" parent="NavigationGraph" unique_id=1336115035 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3759174, 0.75, 4.3563623)
-
-[node name="PathNode9" parent="NavigationGraph" unique_id=1086409410 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1840472, 0.75, 5.5429215)
-
-[node name="PathNode10" parent="NavigationGraph" unique_id=1544853852 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5000286, 0.75, 2.428215)
-
-[node name="PathNode11" parent="NavigationGraph" unique_id=1235796903 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.406966, 0.75, -2.5976934)
-
-[node name="PathNode12" parent="NavigationGraph" unique_id=1182554297 instance=ExtResource("5_nd4bu")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.8561716, 0.75, -0.18905044)
+[node name="PathNode2" parent="NavigationGraph" unique_id=1268038202 instance=ExtResource("5_nd4bu")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.6609339, 0.75, 5.1030393)
