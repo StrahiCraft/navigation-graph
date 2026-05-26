@@ -69,6 +69,11 @@ public partial class NavigationGraph : Node3D
 
 	public override void _EnterTree()
 	{
+		if (!IsInsideTree())
+		{
+			return;
+		}
+
 		if (Engine.IsEditorHint())
 		{
 			if(Instance == null)
@@ -97,6 +102,11 @@ public partial class NavigationGraph : Node3D
 
 	public override void _ExitTree()
 	{
+		if (!IsInsideTree())
+		{
+			return;
+		}
+		
 		if (Engine.IsEditorHint())
 		{
 			if(Instance == this)
@@ -114,6 +124,11 @@ public partial class NavigationGraph : Node3D
 
 	public void RefreshGraph()
 	{
+		if (!IsInsideTree())
+		{
+			return;
+		}
+
 		Instance = this;
 		GlobalPosition = Vector3.Zero;
 
