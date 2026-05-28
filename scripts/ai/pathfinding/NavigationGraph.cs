@@ -235,8 +235,6 @@ public partial class NavigationGraph : Node3D
 		{
 			var (potentialExplorationStart, potentialExplorationEnd) = Pathfinder.Exploration[i];
 
-			Debug.Print(potentialExplorationStart.Position + " " + potentialExplorationEnd.Position);
-
 			Node3D potentialConnection = (Node3D)_potentialConnectionScene.Instantiate();
 			potentialConnection.Position = potentialExplorationStart.Position;
 			potentialConnection.LookAtFromPosition(potentialExplorationEnd.Position, potentialExplorationStart.Position);
@@ -254,7 +252,7 @@ public partial class NavigationGraph : Node3D
 
 			_pathNodeConnectionHolder.AddChild(connection);
 
-			pathSegmentTween.TweenProperty(connection, "scale:z", -path[i].Position.DistanceTo(path[i + 1].Position), 0.5f);
+			pathSegmentTween.TweenProperty(connection, "scale:z", -path[i].Position.DistanceTo(path[i + 1].Position), 0.25f);
 		}
 	}
 }

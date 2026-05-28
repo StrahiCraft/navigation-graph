@@ -16,14 +16,20 @@ public static class Pathfinder
 		while(toExplore.Count > 0)
 		{
 			var (currentNode, path) = toExplore.Pop();
-			if(currentNode == goalNode)
+
+			if (explored.Contains(currentNode))
 			{
-				return path;
+				continue;
 			}
+
 			explored.Add(currentNode);
 			if(path.Count > 1)
 			{
 				_exploration.Add((currentNode, path[^2]));
+			}
+			if(currentNode == goalNode)
+			{
+				return path;
 			}
 
 			foreach(PathNode node in currentNode.ConnectedPathNodes)
@@ -48,14 +54,18 @@ public static class Pathfinder
 		while(toExplore.Count > 0)
 		{
 			var (currentNode, path) = toExplore.Dequeue();
-			if(currentNode == goalNode)
+			if (explored.Contains(currentNode))
 			{
-				return path;
+				continue;
 			}
 			explored.Add(currentNode);
 			if(path.Count > 1)
 			{
 				_exploration.Add((currentNode, path[^2]));
+			}
+			if(currentNode == goalNode)
+			{
+				return path;
 			}
 
 			foreach(PathNode node in currentNode.ConnectedPathNodes)
@@ -80,14 +90,18 @@ public static class Pathfinder
 		while(toExplore.Count > 0)
 		{
 			toExplore.TryDequeue(out KeyValuePair<PathNode, List<PathNode>> currentNode, out float distanceFromStart);
-			if(currentNode.Key == goalNode)
+			if (explored.Contains(currentNode.Key))
 			{
-				return currentNode.Value;
+				continue;
 			}
 			explored.Add(currentNode.Key);
 			if(currentNode.Value.Count > 1)
 			{
 				_exploration.Add((currentNode.Key, currentNode.Value[^2]));
+			}
+			if(currentNode.Key == goalNode)
+			{
+				return currentNode.Value;
 			}
 
 			foreach(PathNode node in currentNode.Key.ConnectedPathNodes)
@@ -115,14 +129,18 @@ public static class Pathfinder
 		while(toExplore.Count > 0)
 		{
 			toExplore.TryDequeue(out KeyValuePair<PathNode, List<PathNode>> currentNode, out AStarCosts currentCosts);
-			if(currentNode.Key == goalNode)
+			if (explored.Contains(currentNode.Key))
 			{
-				return currentNode.Value;
+				continue;
 			}
 			explored.Add(currentNode.Key);
 			if(currentNode.Value.Count > 1)
 			{
 				_exploration.Add((currentNode.Key, currentNode.Value[^2]));
+			}
+			if(currentNode.Key == goalNode)
+			{
+				return currentNode.Value;
 			}
 
 			foreach(PathNode node in currentNode.Key.ConnectedPathNodes)
