@@ -2,16 +2,19 @@ using Godot;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
 [Tool]
 public partial class PathNode : Node3D
 {
+	[Export] private PathNode[] _connectedPathNodeArray;
+
 	private List<PathNode> _connectedPathNodes = new List<PathNode>();
 	private List<PathNodeConnection> _connections = new List<PathNodeConnection>();
 
 	private Vector3 _lastPosition;
 
-	public List<PathNode> ConnectedPathNodes { get => _connectedPathNodes; }
+	public List<PathNode> ConnectedPathNodes { get => _connectedPathNodeArray.ToList(); }
 
     public override void _Ready()
     {
@@ -54,6 +57,8 @@ public partial class PathNode : Node3D
 	{
 		_connectedPathNodes.Add(node);
 		_connections.Add(connection);
+
+		_connectedPathNodeArray = _connectedPathNodes.ToArray();
 	}
 
 	public void RemoveConnection(PathNode node)

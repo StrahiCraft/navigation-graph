@@ -51,8 +51,11 @@ public partial class NavigationGraph : Node3D
 
 	[ExportCategory("Path connections")]
 	[Export] private Node _pathNodeConnectionHolder;
+
+	[ExportCategory("Rendering")]
 	[Export] private PackedScene _pathNodeConnectionScene;
 	[Export] private PackedScene _pathConnectionScene;
+	[Export] private PackedScene _potentialConnectionScene;
 
 	[ExportCategory("Graph settings")]
 	[Export] private float _maxDistanceBetweenPathNodes = 5;
@@ -134,8 +137,11 @@ public partial class NavigationGraph : Node3D
 
 		_maxDistanceBetweenPathNodes = 5;
 		_pathNodeConnectionHolder = _pathNodeConnectionHolder = GetChild(0);
+
 		_pathNodeConnectionScene = ResourceLoader.Load<PackedScene>("res://scenes/objects/pathfinding/path_node_connection.tscn");
 		_pathConnectionScene = ResourceLoader.Load<PackedScene>("res://scenes/objects/pathfinding/path_connection.tscn");
+		_potentialConnectionScene = ResourceLoader.Load<PackedScene>("res://scenes/objects/pathfinding/potential_path_connection.tscn");
+
 		_mapMask = 1;
 		_pathNodes.Clear();
 
@@ -223,12 +229,32 @@ public partial class NavigationGraph : Node3D
 			return;
 		}
 
+		Tween pathSegmentTween = GetTree().CreateTween();
+
+		for(int i = 0; i < Pathfinder.Exploration.Count; i++)
+		{
+			var (potentialExplorationStart, potentialExplorationEnd) = Pathfinder.Exploration[i];
+
+			Debug.Print(potentialExplorationStart.Position + " " + potentialExplorationEnd.Position);
+
+			Node3D potentialConnection = (Node3D)_potentialConnectionScene.Instantiate();
+			potentialConnection.Position = potentialExplorationStart.Position;
+			potentialConnection.LookAtFromPosition(potentialExplorationEnd.Position, potentialExplorationStart.Position);
+
+			_pathNodeConnectionHolder.AddChild(potentialConnection);
+
+			pathSegmentTween.TweenProperty(potentialConnection, "scale:z", -potentialExplorationStart.Position.DistanceTo(potentialExplorationEnd.Position), 0.1f);
+		}
+
 		for(int i = 0; i < path.Count - 1; i++)
 		{
-			PathNodeConnection connection = (PathNodeConnection)_pathConnectionScene.Instantiate();
-			connection.SetPathNodes(path[i], path[i + 1]);
+			Node3D connection = (Node3D)_pathConnectionScene.Instantiate();
+			connection.Position = path[i].Position;
+			connection.LookAtFromPosition(path[i].Position, path[i + 1].Position);
 
 			_pathNodeConnectionHolder.AddChild(connection);
+
+			pathSegmentTween.TweenProperty(connection, "scale:z", -path[i].Position.DistanceTo(path[i + 1].Position), 0.5f);
 		}
 	}
 }

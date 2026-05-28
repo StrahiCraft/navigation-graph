@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cixkoq25n13bh"]
+
+[ext_resource type="PackedScene" uid="uid://c2oco3acp67v1" path="res://scenes/objects/pathfinding/path_node_connection.tscn" id="1_amgob"]
+[ext_resource type="Material" uid="uid://cgkp57xn087tv" path="res://materials/debug/pathfinding/potential_path_connection.tres" id="2_amgob"]
+
+[node name="PathNodeConnection" unique_id=1191909646 instance=ExtResource("1_amgob")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, -0.1, 0, 0, 0)
+script = null
+
+[node name="CSGCylinder3D" parent="." index="0" unique_id=125229842]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0.5)
+material_override = ExtResource("2_amgob")
+radius = 0.15

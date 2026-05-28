@@ -3,11 +3,15 @@ using System.Reflection;
 
 public static class Pathfinder
 {
+	private static List<(PathNode, PathNode)> _exploration = new List<(PathNode, PathNode)>();
+	public static List<(PathNode, PathNode)> Exploration { get => _exploration; }
+
 	public static List<PathNode> CalculatePathDFS(PathNode startingNode, PathNode goalNode)
 	{
 		Stack<(PathNode, List<PathNode>)> toExplore = new Stack<(PathNode, List<PathNode>)>();
 		toExplore.Push((startingNode, new List<PathNode>() {startingNode}));
 		List<PathNode> explored = new List<PathNode>();
+		_exploration.Clear();
 
 		while(toExplore.Count > 0)
 		{
@@ -17,6 +21,10 @@ public static class Pathfinder
 				return path;
 			}
 			explored.Add(currentNode);
+			if(path.Count > 1)
+			{
+				_exploration.Add((currentNode, path[^2]));
+			}
 
 			foreach(PathNode node in currentNode.ConnectedPathNodes)
 			{
@@ -35,6 +43,7 @@ public static class Pathfinder
 		Queue<(PathNode, List<PathNode>)> toExplore = new Queue<(PathNode, List<PathNode>)>();
 		toExplore.Enqueue((startingNode, new List<PathNode>() {startingNode}));
 		List<PathNode> explored = new List<PathNode>();
+		_exploration.Clear();
 
 		while(toExplore.Count > 0)
 		{
@@ -44,6 +53,10 @@ public static class Pathfinder
 				return path;
 			}
 			explored.Add(currentNode);
+			if(path.Count > 1)
+			{
+				_exploration.Add((currentNode, path[^2]));
+			}
 
 			foreach(PathNode node in currentNode.ConnectedPathNodes)
 			{
@@ -62,6 +75,7 @@ public static class Pathfinder
 			new PriorityQueue<KeyValuePair<PathNode, List<PathNode>>, float>();
 		toExplore.Enqueue(new KeyValuePair<PathNode, List<PathNode>> (startingNode, new List<PathNode>() {startingNode}), 0f);
 		List<PathNode> explored = new List<PathNode>();
+		_exploration.Clear();
 
 		while(toExplore.Count > 0)
 		{
@@ -71,6 +85,10 @@ public static class Pathfinder
 				return currentNode.Value;
 			}
 			explored.Add(currentNode.Key);
+			if(currentNode.Value.Count > 1)
+			{
+				_exploration.Add((currentNode.Key, currentNode.Value[^2]));
+			}
 
 			foreach(PathNode node in currentNode.Key.ConnectedPathNodes)
 			{
@@ -92,6 +110,7 @@ public static class Pathfinder
 		AStarCosts startingCosts = new AStarCosts(0, startingNode.Position.DistanceTo(goalNode.Position));
 		toExplore.Enqueue(new KeyValuePair<PathNode, List<PathNode>> (startingNode, new List<PathNode>() {startingNode}), startingCosts);
 		List<PathNode> explored = new List<PathNode>();
+		_exploration.Clear();
 
 		while(toExplore.Count > 0)
 		{
@@ -101,6 +120,10 @@ public static class Pathfinder
 				return currentNode.Value;
 			}
 			explored.Add(currentNode.Key);
+			if(currentNode.Value.Count > 1)
+			{
+				_exploration.Add((currentNode.Key, currentNode.Value[^2]));
+			}
 
 			foreach(PathNode node in currentNode.Key.ConnectedPathNodes)
 			{
